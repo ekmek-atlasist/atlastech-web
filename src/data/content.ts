@@ -11,7 +11,6 @@ export const NAV_LINKS = [
   { label: "Ana Sayfa", href: "#home" },
   { label: "Hakkımızda", href: "#about" },
   { label: "Hizmetlerimiz", href: "#services" },
-  { label: "Ürünlerimiz", href: "#products" },
   { label: "İletişim", href: "#contact" },
 ];
 
@@ -51,27 +50,6 @@ export const SERVICES: Service[] = [
     description:
       "Kurumsal altyapı, ağ yönetimi ve sistem entegrasyonu konularında uçtan uca destek veriyoruz.",
     Icon: NetworkIcon,
-  },
-];
-
-export type Product = {
-  name: string;
-  slogan: string;
-  description: string;
-  website: string;
-  websiteUrl: string;
-  status: string;
-};
-
-export const PRODUCTS: Product[] = [
-  {
-    name: "EKMEK",
-    slogan: "İşe Giden Yolun En Kısası",
-    description:
-      "Ekmek, iş arayanlar ile işverenleri daha hızlı ve etkili şekilde buluşturmayı hedefleyen mobil platformdur. Kullanıcı deneyimini ön planda tutan yapısıyla iş arama süreçlerini kolaylaştırmayı amaçlamaktadır.",
-    website: "ekmekisbul.com",
-    websiteUrl: "https://ekmekisbul.com",
-    status: "Mobil Platform",
   },
 ];
 

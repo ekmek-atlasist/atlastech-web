@@ -49,16 +49,16 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      data-section-theme="dark"
-      className="relative scroll-mt-24 py-20 sm:py-28"
+      data-section-theme="light"
+      className="relative scroll-mt-24 bg-slate-50 py-20 text-navy-900 sm:py-28"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="reveal mx-auto max-w-2xl text-center">
-          <SectionLabel>İletişime Geçin</SectionLabel>
-          <h2 className="mt-4 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <SectionLabel onLight>İletişime Geçin</SectionLabel>
+          <h2 className="mt-4 font-sans text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
             Projenizi birlikte hayata geçirelim
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-ink-300">
+          <p className="mt-4 text-base leading-relaxed text-slate-600">
             Sorularınız ve teklif talepleriniz için bize ulaşın. En kısa sürede
             geri dönüş yapalım.
           </p>
@@ -67,39 +67,39 @@ export default function Contact() {
         <div className="mt-12 grid gap-6 lg:grid-cols-5">
           {/* Info + map */}
           <div className="reveal flex flex-col gap-6 lg:col-span-2">
-            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-navy-800/70 to-navy-900/50 p-7">
-              <p className="text-xs font-semibold uppercase tracking-wider text-accent-300">
+            <div className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-wider text-accent-500">
                 Şirket Unvanı
               </p>
-              <p className="mt-2 font-sans text-sm font-semibold leading-relaxed text-white">
+              <p className="mt-2 font-sans text-sm font-semibold leading-relaxed text-navy-900">
                 {COMPANY.legalName}
               </p>
 
               <div className="mt-6 flex items-start gap-3">
-                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-500/15 text-accent-300">
+                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-500/10 text-accent-500">
                   <MapPinIcon className="h-5 w-5" />
                 </span>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-ink-400">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                     Adres
                   </p>
-                  <p className="mt-1 text-sm leading-relaxed text-ink-100">
+                  <p className="mt-1 text-sm leading-relaxed text-navy-800">
                     {COMPANY.address}
                   </p>
                 </div>
               </div>
 
               <div className="mt-5 flex items-start gap-3">
-                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-500/15 text-accent-300">
+                <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-500/10 text-accent-500">
                   <MailIcon className="h-5 w-5" />
                 </span>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-ink-400">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                     E-Posta
                   </p>
                   <a
                     href={`mailto:${COMPANY.email}`}
-                    className="mt-1 block text-sm text-ink-100 transition-colors hover:text-accent-300"
+                    className="mt-1 block text-sm text-navy-800 transition-colors hover:text-accent-500"
                   >
                     {COMPANY.email}
                   </a>
@@ -108,7 +108,7 @@ export default function Contact() {
             </div>
 
             {/* Google Maps */}
-            <div className="group relative flex-1 overflow-hidden rounded-2xl border border-white/10">
+            <div className="group relative flex-1 overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
               <iframe
                 title="ATLAS İSTANBUL Teknoloji konumu"
                 src={MAPS_EMBED_URL}
@@ -134,7 +134,7 @@ export default function Contact() {
           <div className="reveal lg:col-span-3" style={{ transitionDelay: "100ms" }}>
             <form
               onSubmit={handleSubmit}
-              className="rounded-2xl border border-white/10 bg-gradient-to-br from-navy-800/70 to-navy-900/50 p-7 sm:p-8"
+              className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm sm:p-8"
             >
               <div className="grid gap-5 sm:grid-cols-2">
                 <Field label="Ad Soyad">
@@ -189,17 +189,17 @@ export default function Contact() {
               </button>
 
               {status === "success" && (
-                <p className="mt-4 text-sm text-green-300">
+                <p className="mt-4 text-sm font-medium text-green-600">
                   Mesajınız için teşekkürler! En kısa sürede size geri dönüş
                   yapacağız.
                 </p>
               )}
               {status === "error" && (
-                <p className="mt-4 text-sm text-red-300">
+                <p className="mt-4 text-sm font-medium text-red-600">
                   Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin veya{" "}
                   <a
                     href={`mailto:${COMPANY.email}`}
-                    className="underline hover:text-red-200"
+                    className="underline hover:text-red-700"
                   >
                     {COMPANY.email}
                   </a>{" "}
@@ -223,7 +223,7 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-ink-400">
+      <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-slate-500">
         {label}
       </span>
       {children}
