@@ -3,7 +3,7 @@ import {
   WebIcon,
   DatabaseIcon,
   CodeIcon,
-  NetworkIcon,
+  UsersIcon,
 } from "../components/icons";
 import type { ComponentType, SVGProps } from "react";
 
@@ -46,10 +46,10 @@ export const SERVICES: Service[] = [
     Icon: CodeIcon,
   },
   {
-    title: "Network ve Sistem Çözümleri",
+    title: "İnsan Kaynakları Çözümleri",
     description:
-      "Kurumsal altyapı, ağ yönetimi ve sistem entegrasyonu konularında uçtan uca destek veriyoruz.",
-    Icon: NetworkIcon,
+      "Özel istihdam bürosu olarak, mobil uygulamamız ve sitemiz üzerinden aracılık ve işe yerleştirme hizmetleri sunuyoruz.",
+    Icon: UsersIcon,
   },
 ];
 
@@ -57,8 +57,9 @@ export const COMPANY = {
   shortName: "ATLAS İSTANBUL",
   tagline: "Teknoloji ve İnovasyon Hizmetleri",
   legalName:
-    "ATLAS İSTANBUL TEKNOLOJİ İNOVASYON HİZMETLERİ İÇ VE DIŞ TİCARET ANONİM ŞİRKETİ",
-  shortLegal: "ATLAS İSTANBUL Teknoloji ve İnovasyon Hizmetleri A.Ş.",
+    "ATLAS İSTANBUL TEKNOLOJİ İNOVASYON HİZMETLERİ DANIŞMANLIK İÇ VE DIŞ TİCARET ANONİM ŞİRKETİ",
+  shortLegal:
+    "ATLAS İSTANBUL Teknoloji İnovasyon Hizmetleri Danışmanlık A.Ş.",
   email: "info@atlasistanbulteknoloji.com",
   address:
     "Turgut Özal Mah. 68. Sk. B Blok İş Merkezi No: 42/1 İç Kapı No: 3 Esenyurt / İstanbul",

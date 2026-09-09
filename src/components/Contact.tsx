@@ -55,7 +55,7 @@ export default function Contact() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="reveal mx-auto max-w-2xl text-center">
           <SectionLabel onLight>İletişime Geçin</SectionLabel>
-          <h2 className="mt-4 font-sans text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
+          <h2 className="mt-4 text-balance font-sans text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
             Projenizi birlikte hayata geçirelim
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-600">

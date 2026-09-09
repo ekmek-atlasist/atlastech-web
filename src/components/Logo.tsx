@@ -79,7 +79,7 @@ export default function Logo({
               onLight ? "text-slate-500" : "text-ink-400"
             }`}
           >
-            Teknoloji ve İnovasyon Hizmetleri
+            Teknoloji İnovasyon Hizmetleri Danışmanlık
           </div>
         </div>
       )}

@@ -11,11 +11,11 @@ export const KVKK_SUBTITLE =
 export const KVKK_BLOCKS: LegalBlock[] = [
   {
     type: "h",
-    text: "ATLAS İSTANBUL TEKNOLOJİ İNOVASYON HİZMETLERİ İÇ VE DIŞ TİCARET ANONİM ŞİRKETİ KİŞİSEL VERİLERİN İŞLENMESİNE İLİŞKİN AYDINLATMA METNİ",
+    text: "ATLAS İSTANBUL TEKNOLOJİ İNOVASYON HİZMETLERİ DANIŞMANLIK İÇ VE DIŞ TİCARET ANONİM ŞİRKETİ KİŞİSEL VERİLERİN İŞLENMESİNE İLİŞKİN AYDINLATMA METNİ",
   },
   {
     type: "p",
-    text: "İşbu Aydınlatma Metni, ATLAS İSTANBUL TEKNOLOJİ İNOVASYON HİZMETLERİ İÇ VE DIŞ TİCARET ANONİM ŞİRKETİ (“ŞİRKET”) tarafından 6698 sayılı Kişisel Verilerin Korunması Kanunu (“Kanun”) (Kabul Tarihi: 24/3/2016 | Yayımlandığı Resmi Gazetenin Tarihi: 7/4/2016 Sayısı: 29677) madde 10 kapsamında kişisel verilerinizin işlenmesine ilişkin amaç, kapsam, süre ve sizi etkileyebilecek diğer hususlar hakkında bilgilendirmek amacıyla hazırlanmıştır.",
+    text: "İşbu Aydınlatma Metni, ATLAS İSTANBUL TEKNOLOJİ İNOVASYON HİZMETLERİ DANIŞMANLIK İÇ VE DIŞ TİCARET ANONİM ŞİRKETİ (“ŞİRKET”) tarafından 6698 sayılı Kişisel Verilerin Korunması Kanunu (“Kanun”) (Kabul Tarihi: 24/3/2016 | Yayımlandığı Resmi Gazetenin Tarihi: 7/4/2016 Sayısı: 29677) madde 10 kapsamında kişisel verilerinizin işlenmesine ilişkin amaç, kapsam, süre ve sizi etkileyebilecek diğer hususlar hakkında bilgilendirmek amacıyla hazırlanmıştır.",
   },
   {
     type: "p",
@@ -94,7 +94,7 @@ export const KVKK_BLOCKS: LegalBlock[] = [
   { type: "h", text: "2. KİŞİSEL VERİLERİN TOPLANMASININ YASAL DAYANAĞI" },
   {
     type: "p",
-    text: "Kişisel verilerin korunması, ATLAS İSTANBUL TEKNOLOJİ İNOVASYON HİZMETLERİ İÇ VE DIŞ TİCARET ANONİM ŞİRKETİ için en üst düzey hassasiyete sahip bir konudur. ŞİRKET, 6698 Sayılı Kişisel Verilerin Korunması Kanunu (“KVK Kanunu”) ve kişisel verilerin korunmasına ilişkin mevzuata uyum sağlanması amacıyla KVK Kanunu’nun, 6563 Sayılı Elektronik Ticaretin Düzenlenmesi Hakkında Kanun’un, 5237 Sayılı Türk Ceza Kanunu’nun kişisel verilere ilişkin öngördüğü ilkeleri benimsemektedir.",
+    text: "Kişisel verilerin korunması, ATLAS İSTANBUL TEKNOLOJİ İNOVASYON HİZMETLERİ DANIŞMANLIK İÇ VE DIŞ TİCARET ANONİM ŞİRKETİ için en üst düzey hassasiyete sahip bir konudur. ŞİRKET, 6698 Sayılı Kişisel Verilerin Korunması Kanunu (“KVK Kanunu”) ve kişisel verilerin korunmasına ilişkin mevzuata uyum sağlanması amacıyla KVK Kanunu’nun, 6563 Sayılı Elektronik Ticaretin Düzenlenmesi Hakkında Kanun’un, 5237 Sayılı Türk Ceza Kanunu’nun kişisel verilere ilişkin öngördüğü ilkeleri benimsemektedir.",
   },
   {
     type: "p",
@@ -293,7 +293,7 @@ export const KVKK_BLOCKS: LegalBlock[] = [
   {
     type: "def",
     term: "Şirket Unvanı",
-    text: "ATLAS İSTANBUL TEKNOLOJİ İNOVASYON HİZMETLERİ İÇ VE DIŞ TİCARET ANONİM ŞİRKETİ",
+    text: "ATLAS İSTANBUL TEKNOLOJİ İNOVASYON HİZMETLERİ DANIŞMANLIK İÇ VE DIŞ TİCARET ANONİM ŞİRKETİ",
   },
   {
     type: "def",

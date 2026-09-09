@@ -1,10 +1,33 @@
 import { CheckIcon } from "./icons";
 
+const PRINCIPLES = [
+  {
+    k: "Vizyon",
+    v: "Kalıcı değer üreten, güvenilir bir teknoloji ve istihdam markası olmak.",
+    img: "/about-vizyon.png",
+  },
+  {
+    k: "Misyon",
+    v: "Yazılım, teknoloji ve insan kaynakları çözümlerini tek çatı altında sunmak.",
+    img: "/about-misyon.png",
+  },
+  {
+    k: "Yaklaşım",
+    v: "Kullanıcı deneyimini önceleyen, sürdürülebilir mühendislik.",
+    img: "/about-yaklasim.png",
+  },
+  {
+    k: "Değerler",
+    v: "Güven, kalite, şeffaflık ve sürekli gelişim.",
+    img: "/about-degerler.png",
+  },
+];
+
 const HIGHLIGHTS = [
   "Web yazılımları ve kurumsal uygulamalar",
   "Mobil uygulama geliştirme (iOS & Android)",
-  "Veri tabanı ve altyapı sistemleri",
-  "Network ve kuruma özel yazılım çözümleri",
+  "Veri tabanı ve kuruma özel yazılım çözümleri",
+  "Özel istihdam bürosu & işe yerleştirme",
 ];
 
 export default function About() {
@@ -14,28 +37,29 @@ export default function About() {
       data-section-theme="light"
       className="relative scroll-mt-24 bg-slate-50 py-20 text-navy-900 sm:py-28"
     >
-      <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2">
+      <div className="mx-auto grid max-w-7xl items-stretch gap-12 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
         <div className="reveal">
           <SectionLabel onLight>Hakkımızda</SectionLabel>
-          <h2 className="mt-4 font-sans text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
-            Dijital dönüşümün güvenilir teknoloji ortağı
+          <h2 className="mt-4 text-balance font-sans text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
+            Dijital dönüşümün güvenilir teknoloji ve istihdam ortağı
           </h2>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-slate-600">
             <p>
-              ATLAS İSTANBUL Teknoloji ve İnovasyon Hizmetleri A.Ş., yazılım
-              geliştirme ve teknoloji çözümleri alanında faaliyet göstermektedir.
-              Şirketimiz web yazılımları, mobil uygulamalar, veri tabanı
-              sistemleri, network çözümleri ve kuruma özel yazılımlar
-              geliştirmektedir.
+              ATLAS İSTANBUL Teknoloji İnovasyon Hizmetleri Danışmanlık A.Ş.,
+              yazılım geliştirme ve teknoloji çözümlerinin yanı sıra insan
+              kaynakları alanında faaliyet göstermektedir. Şirketimiz web
+              yazılımları, mobil uygulamalar, veri tabanı sistemleri ve kuruma
+              özel yazılımlar geliştirmektedir.
             </p>
             <p>
-              İşletmelerin dijital dönüşüm süreçlerine katkı sağlayan
-              ölçeklenebilir ve sürdürülebilir yazılım çözümleri üretmeyi
-              hedeflemektedir.
+              Aynı zamanda özel istihdam bürosu olarak, mobil uygulamamız ve
+              web sitemiz üzerinden aracılık ve işe yerleştirme hizmetleri
+              sunuyor; işletmelerin dijital dönüşüm süreçlerine katkı sağlayan
+              ölçeklenebilir ve sürdürülebilir çözümler üretmeyi hedefliyoruz.
             </p>
           </div>
 
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+          <ul className="mt-8 grid gap-x-6 gap-y-3.5 sm:grid-cols-2">
             {HIGHLIGHTS.map((item) => (
               <li key={item} className="flex items-start gap-3 text-sm text-navy-800">
                 <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-500/15 text-accent-500">
@@ -45,28 +69,58 @@ export default function About() {
               </li>
             ))}
           </ul>
+
+          {/* İŞKUR credential strip */}
+          <div className="mt-9 flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+            <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-slate-100 bg-white p-1.5">
+              <img
+                src="/iskur-logo.png"
+                alt="İŞKUR Özel İstihdam Bürosu"
+                width={64}
+                height={64}
+                loading="lazy"
+                className="h-full w-full object-contain"
+              />
+            </span>
+            <div>
+              <p className="font-sans text-sm font-bold text-navy-900">
+                İŞKUR Onaylı Özel İstihdam Bürosu
+              </p>
+              <p className="mt-0.5 text-xs text-slate-500">
+                Belge No: 2021 · Tarih: 19/08/2026 · Yasal yetkiye sahip
+                aracılık hizmeti
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div className="reveal relative" style={{ transitionDelay: "120ms" }}>
-          <div className="absolute -inset-4 -z-10 rounded-3xl bg-accent-500/10 blur-2xl" />
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              { k: "Vizyon", v: "İnovasyon odaklı, sürdürülebilir teknoloji üretimi." },
-              { k: "Misyon", v: "İşletmelere ölçeklenebilir yazılım çözümleri sunmak." },
-              { k: "Yaklaşım", v: "Kullanıcı deneyimini önceleyen kurumsal mühendislik." },
-              { k: "Değerler", v: "Güven, kalite, şeffaflık ve sürekli gelişim." },
-            ].map((c, i) => (
-              <div
-                key={c.k}
-                className={`rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent-400/50 hover:shadow-lg hover:shadow-navy-900/5 ${
-                  i % 2 === 1 ? "sm:mt-6" : ""
-                }`}
-              >
-                <p className="font-sans text-lg font-bold text-navy-900">{c.k}</p>
-                <p className="mt-2 text-sm leading-relaxed text-slate-500">{c.v}</p>
-              </div>
-            ))}
-          </div>
+        {/* Principles — larger cards that fill the column height */}
+        <div
+          className="reveal grid gap-4 sm:grid-cols-2 lg:h-full lg:grid-rows-2"
+          style={{ ["--i" as string]: 1 }}
+        >
+          {PRINCIPLES.map(({ k, v, img }) => (
+            <div
+              key={k}
+              className="group relative flex h-full flex-col items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent-400/50 hover:shadow-xl hover:shadow-navy-900/[0.06]"
+            >
+              <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-400/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <img
+                src={img}
+                alt={k}
+                width={140}
+                height={140}
+                loading="lazy"
+                className="h-28 w-28 object-contain transition-transform duration-300 group-hover:scale-105 sm:h-32 sm:w-32"
+              />
+              <p className="mt-4 font-sans text-lg font-bold text-navy-900">
+                {k}
+              </p>
+              <p className="mt-1.5 max-w-[16rem] text-sm leading-relaxed text-slate-500">
+                {v}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

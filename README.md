@@ -1,6 +1,6 @@
 # ATLAS İSTANBUL Teknoloji — Kurumsal Web Sitesi
 
-ATLAS İSTANBUL Teknoloji ve İnovasyon Hizmetleri A.Ş. için geliştirilmiş, modern,
+ATLAS İSTANBUL Teknoloji İnovasyon Hizmetleri Danışmanlık A.Ş. için geliştirilmiş, modern,
 premium ve tek sayfalık (single-page) kurumsal web sitesi.
 
 ## Teknolojiler
