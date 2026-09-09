@@ -5,9 +5,11 @@ import Services from "./components/Services";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { useReveal } from "./hooks/useReveal";
+import { useI18n } from "./i18n/LanguageContext";
 
 export default function App() {
-  useReveal();
+  const { lang } = useI18n();
+  useReveal(lang);
 
   return (
     <div className="min-h-screen bg-navy-950">

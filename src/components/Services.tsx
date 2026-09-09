@@ -1,8 +1,15 @@
-import { SERVICES } from "../data/content";
+import { SERVICE_ICONS } from "../data/content";
 import { SectionLabel } from "./About";
 import { ArrowRightIcon } from "./icons";
+import { useI18n } from "../i18n/LanguageContext";
 
 export default function Services() {
+  const { t } = useI18n();
+  const SERVICES = t.services.items.map((item, i) => ({
+    ...item,
+    Icon: SERVICE_ICONS[i],
+  }));
+
   return (
     <section
       id="services"
@@ -17,21 +24,20 @@ export default function Services() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="reveal flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <SectionLabel>Hizmetlerimiz</SectionLabel>
+            <SectionLabel>{t.services.label}</SectionLabel>
             <h2 className="mt-4 text-balance font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Uçtan uca yazılım, teknoloji ve insan kaynakları çözümleri
+              {t.services.heading}
             </h2>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-ink-400 md:text-right">
-            İşletmenizin ihtiyaçlarına özel, modern ve ölçeklenebilir çözümler
-            geliştiriyoruz.
+            {t.services.subtitle}
           </p>
         </div>
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map(({ title, description, Icon }, i) => (
             <article
-              key={title}
+              key={i}
               style={{ ["--i" as string]: i }}
               className="reveal sheen group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br from-navy-800/70 to-navy-900/50 p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent-400/30 hover:from-navy-800"
             >
@@ -66,17 +72,17 @@ export default function Services() {
                 <ArrowRightIcon className="h-7 w-7" />
               </div>
               <h3 className="mt-6 font-sans text-lg font-bold text-white">
-                Projenizi birlikte konuşalım
+                {t.services.ctaHeading}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-ink-300">
-                İhtiyaçlarınızı değerlendirelim, size en uygun çözümü planlayalım.
+                {t.services.ctaDescription}
               </p>
             </div>
             <a
               href="#contact"
               className="relative mt-6 inline-flex w-fit items-center gap-2 rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-navy-900 shadow-lg shadow-black/20 transition-transform duration-300 hover:-translate-y-0.5"
             >
-              Teklif Al
+              {t.services.ctaButton}
               <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </article>

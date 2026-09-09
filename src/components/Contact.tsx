@@ -7,12 +7,17 @@ import {
 } from "../data/content";
 import { SectionLabel } from "./About";
 import { MapPinIcon, MailIcon, CheckIcon, ExternalIcon } from "./icons";
+import LegalModal from "./LegalModal";
+import { useI18n } from "../i18n/LanguageContext";
 
 type Status = "idle" | "sending" | "success" | "error";
 
 export default function Contact() {
+  const { t } = useI18n();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<Status>("idle");
+  const [legalOpen, setLegalOpen] = useState(false);
+  const [botField, setBotField] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -22,6 +27,15 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Honeypot: gerçek kullanıcılar bu gizli alanı görmez/doldurmaz.
+    // Botlar doldurursa gönderimi sessizce yok say.
+    if (botField) {
+      setStatus("success");
+      setForm({ name: "", email: "", message: "" });
+      return;
+    }
+
     setStatus("sending");
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
@@ -31,6 +45,7 @@ export default function Contact() {
           name: form.name,
           email: form.email,
           message: form.message,
+          _gotcha: botField,
           _subject: `İletişim formu — ${form.name}`,
         }),
       });
@@ -54,13 +69,12 @@ export default function Contact() {
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="reveal mx-auto max-w-2xl text-center">
-          <SectionLabel onLight>İletişime Geçin</SectionLabel>
+          <SectionLabel onLight>{t.contact.label}</SectionLabel>
           <h2 className="mt-4 text-balance font-sans text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
-            Projenizi birlikte hayata geçirelim
+            {t.contact.heading}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-600">
-            Sorularınız ve teklif talepleriniz için bize ulaşın. En kısa sürede
-            geri dönüş yapalım.
+            {t.contact.description}
           </p>
         </div>
 
@@ -69,7 +83,7 @@ export default function Contact() {
           <div className="reveal flex flex-col gap-6 lg:col-span-2">
             <div className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-wider text-accent-500">
-                Şirket Unvanı
+                {t.contact.companyTitle}
               </p>
               <p className="mt-2 font-sans text-sm font-semibold leading-relaxed text-navy-900">
                 {COMPANY.legalName}
@@ -81,7 +95,7 @@ export default function Contact() {
                 </span>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                    Adres
+                    {t.contact.addressLabel}
                   </p>
                   <p className="mt-1 text-sm leading-relaxed text-navy-800">
                     {COMPANY.address}
@@ -95,7 +109,7 @@ export default function Contact() {
                 </span>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                    E-Posta
+                    {t.contact.emailLabel}
                   </p>
                   <a
                     href={`mailto:${COMPANY.email}`}
@@ -110,7 +124,7 @@ export default function Contact() {
             {/* Google Maps */}
             <div className="group relative flex-1 overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
               <iframe
-                title="ATLAS İSTANBUL Teknoloji konumu"
+                title={t.contact.mapTitle}
                 src={MAPS_EMBED_URL}
                 className="h-full min-h-56 w-full"
                 style={{ border: 0, filter: "grayscale(0.2) contrast(1.05)" }}
@@ -124,7 +138,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="absolute bottom-3 right-3 inline-flex items-center gap-2 rounded-lg border border-white/15 bg-navy-950/80 px-3 py-2 text-xs font-semibold text-white backdrop-blur transition-colors hover:border-accent-400/40 hover:text-accent-300"
               >
-                Google Haritalar'da Aç
+                {t.contact.openMaps}
                 <ExternalIcon className="h-3.5 w-3.5" />
               </a>
             </div>
@@ -136,39 +150,57 @@ export default function Contact() {
               onSubmit={handleSubmit}
               className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm sm:p-8"
             >
+              {/* Honeypot — spam koruması, kullanıcıya görünmez */}
+              <div
+                aria-hidden="true"
+                className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden"
+              >
+                <label>
+                  Bu alanı boş bırakın
+                  <input
+                    type="text"
+                    name="_gotcha"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={botField}
+                    onChange={(e) => setBotField(e.target.value)}
+                  />
+                </label>
+              </div>
+
               <div className="grid gap-5 sm:grid-cols-2">
-                <Field label="Ad Soyad">
+                <Field label={t.contact.nameLabel}>
                   <input
                     name="name"
                     required
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="Adınız ve soyadınız"
+                    placeholder={t.contact.namePlaceholder}
                     className="input"
                   />
                 </Field>
-                <Field label="E-Posta">
+                <Field label={t.contact.emailLabel}>
                   <input
                     name="email"
                     type="email"
                     required
                     value={form.email}
                     onChange={handleChange}
-                    placeholder="ornek@eposta.com"
+                    placeholder={t.contact.emailPlaceholder}
                     className="input"
                   />
                 </Field>
               </div>
 
               <div className="mt-5">
-                <Field label="Mesaj">
+                <Field label={t.contact.messageLabel}>
                   <textarea
                     name="message"
                     required
                     rows={5}
                     value={form.message}
                     onChange={handleChange}
-                    placeholder="Projeniz veya talebiniz hakkında kısaca bilgi verin..."
+                    placeholder={t.contact.messagePlaceholder}
                     className="input resize-none"
                   />
                 </Field>
@@ -179,37 +211,50 @@ export default function Contact() {
                 disabled={status === "sending"}
                 className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent-500 to-accent-400 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-accent-500/40 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
               >
-                {status === "sending" && "Gönderiliyor..."}
+                {status === "sending" && t.contact.sending}
                 {status === "success" && (
                   <>
-                    <CheckIcon className="h-4 w-4" /> Gönderildi
+                    <CheckIcon className="h-4 w-4" /> {t.contact.sent}
                   </>
                 )}
-                {(status === "idle" || status === "error") && "Gönder"}
+                {(status === "idle" || status === "error") && t.contact.send}
               </button>
 
               {status === "success" && (
                 <p className="mt-4 text-sm font-medium text-green-600">
-                  Mesajınız için teşekkürler! En kısa sürede size geri dönüş
-                  yapacağız.
+                  {t.contact.successMsg}
                 </p>
               )}
               {status === "error" && (
                 <p className="mt-4 text-sm font-medium text-red-600">
-                  Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin veya{" "}
+                  {t.contact.errorPre}
                   <a
                     href={`mailto:${COMPANY.email}`}
                     className="underline hover:text-red-700"
                   >
                     {COMPANY.email}
-                  </a>{" "}
-                  adresine yazın.
+                  </a>
+                  {t.contact.errorPost}
                 </p>
               )}
+
+              <p className="mt-5 text-xs leading-relaxed text-slate-400">
+                {t.contact.kvkkPre}
+                <button
+                  type="button"
+                  onClick={() => setLegalOpen(true)}
+                  className="font-medium text-accent-500 underline underline-offset-2 transition-colors hover:text-accent-600"
+                >
+                  {t.contact.kvkkLink}
+                </button>
+                {t.contact.kvkkPost}
+              </p>
             </form>
           </div>
         </div>
       </div>
+
+      <LegalModal open={legalOpen} onClose={() => setLegalOpen(false)} />
     </section>
   );
 }

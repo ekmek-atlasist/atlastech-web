@@ -7,50 +7,29 @@ import {
 } from "../components/icons";
 import type { ComponentType, SVGProps } from "react";
 
-export const NAV_LINKS = [
-  { label: "Ana Sayfa", href: "#home" },
-  { label: "Hakkımızda", href: "#about" },
-  { label: "Hizmetlerimiz", href: "#services" },
-  { label: "İletişim", href: "#contact" },
+// Bölüm bağlantıları — etiketler i18n sözlüğünden gelir (key → t.nav[key])
+export const NAV_ITEMS: { key: "home" | "about" | "services" | "contact"; href: string }[] = [
+  { key: "home", href: "#home" },
+  { key: "about", href: "#about" },
+  { key: "services", href: "#services" },
+  { key: "contact", href: "#contact" },
 ];
 
-export type Service = {
-  title: string;
-  description: string;
-  Icon: ComponentType<SVGProps<SVGSVGElement>>;
-};
+// Hizmet ikonları — sıraları çeviri sözlüğündeki services.items ile eşleşir
+export const SERVICE_ICONS: ComponentType<SVGProps<SVGSVGElement>>[] = [
+  MobileIcon,
+  WebIcon,
+  DatabaseIcon,
+  CodeIcon,
+  UsersIcon,
+];
 
-export const SERVICES: Service[] = [
-  {
-    title: "Mobil Uygulama Geliştirme",
-    description:
-      "Android ve iOS platformları için modern, performanslı ve kullanıcı odaklı mobil uygulamalar geliştiriyoruz.",
-    Icon: MobileIcon,
-  },
-  {
-    title: "Web Yazılım Geliştirme",
-    description:
-      "Kurumsal web uygulamaları ve işletmenize özel, ölçeklenebilir yazılım çözümleri tasarlıyoruz.",
-    Icon: WebIcon,
-  },
-  {
-    title: "Veri Tabanı Sistemleri",
-    description:
-      "Güvenli, hızlı ve sürdürülebilir veri yönetimi ile altyapı çözümleri sunuyoruz.",
-    Icon: DatabaseIcon,
-  },
-  {
-    title: "Kuruma Özel Yazılım Geliştirme",
-    description:
-      "İşletmelerin ihtiyaçlarına göre kurgulanan, uçtan uca özel yazılım projeleri üretiyoruz.",
-    Icon: CodeIcon,
-  },
-  {
-    title: "İnsan Kaynakları Çözümleri",
-    description:
-      "Özel istihdam bürosu olarak, mobil uygulamamız ve sitemiz üzerinden aracılık ve işe yerleştirme hizmetleri sunuyoruz.",
-    Icon: UsersIcon,
-  },
+// Hakkımızda ilke görselleri — sıraları about.principles ile eşleşir
+export const PRINCIPLE_IMAGES = [
+  "/about-vizyon.webp",
+  "/about-misyon.webp",
+  "/about-yaklasim.webp",
+  "/about-degerler.webp",
 ];
 
 export const COMPANY = {

@@ -3,8 +3,11 @@ import { useEffect } from "react";
 /**
  * Adds an IntersectionObserver that toggles `.is-visible` on every
  * element carrying the `.reveal` class once it scrolls into view.
+ *
+ * Pass a `dep` (e.g. the active language) so the observer re-scans when
+ * content is re-rendered and new `.reveal` nodes appear in the DOM.
  */
-export function useReveal() {
+export function useReveal(dep?: unknown) {
   useEffect(() => {
     const els = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
 
@@ -27,5 +30,5 @@ export function useReveal() {
 
     els.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  }, [dep]);
 }

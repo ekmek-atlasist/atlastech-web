@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
-import { NAV_LINKS } from "../data/content";
+import { NAV_ITEMS } from "../data/content";
 import { MenuIcon, CloseIcon } from "./icons";
+import { useI18n } from "../i18n/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
+  const { t } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [behindTheme, setBehindTheme] = useState<"light" | "dark">("dark");
@@ -84,12 +87,12 @@ export default function Header() {
       />
 
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 py-3.5 sm:px-8">
-        <a href="#home" aria-label="Ana sayfaya dön">
+        <a href="#home" aria-label={t.a11y.backHome}>
           <Logo variant={variant} />
         </a>
 
         <nav className="hidden items-center gap-1 lg:flex">
-          {NAV_LINKS.map((link) => (
+          {NAV_ITEMS.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -97,22 +100,24 @@ export default function Header() {
                 activeId === link.href ? linkActive : linkBase
               }`}
             >
-              {link.label}
+              {t.nav[link.key]}
             </a>
           ))}
         </nav>
 
         <div className="flex items-center gap-3">
+          <LanguageSwitcher variant={variant} className="hidden sm:block" />
+
           <a
             href="#contact"
             className="group hidden items-center gap-2 rounded-xl bg-gradient-to-b from-accent-400 to-accent-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-accent-500/25 ring-1 ring-inset ring-white/15 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-accent-500/40 sm:inline-flex"
           >
-            Teklif Al
+            {t.cta.quote}
           </a>
 
           <button
             type="button"
-            aria-label={open ? "Menüyü kapat" : "Menüyü aç"}
+            aria-label={open ? t.a11y.closeMenu : t.a11y.openMenu}
             onClick={() => setOpen((v) => !v)}
             className={`inline-flex h-10 w-10 items-center justify-center rounded-lg border transition-colors lg:hidden ${menuBtnClass}`}
           >
@@ -128,7 +133,7 @@ export default function Header() {
         } ${open ? "max-h-96 border-b " + (headerLight ? "border-slate-200" : "border-white/10") : "max-h-0"}`}
       >
         <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-4 sm:px-8">
-          {NAV_LINKS.map((link) => (
+          {NAV_ITEMS.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -141,16 +146,19 @@ export default function Header() {
                     : "text-ink-300 hover:bg-white/5 hover:text-white"
               }`}
             >
-              {link.label}
+              {t.nav[link.key]}
             </a>
           ))}
-          <a
-            href="#contact"
-            onClick={() => setOpen(false)}
-            className="mt-2 rounded-xl bg-gradient-to-b from-accent-400 to-accent-500 px-4 py-3 text-center text-base font-semibold text-white"
-          >
-            Teklif Al
-          </a>
+          <div className="mt-3 flex items-center justify-between gap-3">
+            <LanguageSwitcher variant={variant} mode="inline" />
+            <a
+              href="#contact"
+              onClick={() => setOpen(false)}
+              className="rounded-xl bg-gradient-to-b from-accent-400 to-accent-500 px-5 py-2.5 text-sm font-semibold text-white"
+            >
+              {t.cta.quote}
+            </a>
+          </div>
         </nav>
       </div>
     </header>

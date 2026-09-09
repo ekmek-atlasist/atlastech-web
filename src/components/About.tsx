@@ -1,36 +1,15 @@
 import { CheckIcon } from "./icons";
-
-const PRINCIPLES = [
-  {
-    k: "Vizyon",
-    v: "Kalıcı değer üreten, güvenilir bir teknoloji ve istihdam markası olmak.",
-    img: "/about-vizyon.png",
-  },
-  {
-    k: "Misyon",
-    v: "Yazılım, teknoloji ve insan kaynakları çözümlerini tek çatı altında sunmak.",
-    img: "/about-misyon.png",
-  },
-  {
-    k: "Yaklaşım",
-    v: "Kullanıcı deneyimini önceleyen, sürdürülebilir mühendislik.",
-    img: "/about-yaklasim.png",
-  },
-  {
-    k: "Değerler",
-    v: "Güven, kalite, şeffaflık ve sürekli gelişim.",
-    img: "/about-degerler.png",
-  },
-];
-
-const HIGHLIGHTS = [
-  "Web yazılımları ve kurumsal uygulamalar",
-  "Mobil uygulama geliştirme (iOS & Android)",
-  "Veri tabanı ve kuruma özel yazılım çözümleri",
-  "Özel istihdam bürosu & işe yerleştirme",
-];
+import { PRINCIPLE_IMAGES } from "../data/content";
+import { useI18n } from "../i18n/LanguageContext";
 
 export default function About() {
+  const { t } = useI18n();
+  const PRINCIPLES = t.about.principles.map((p, i) => ({
+    ...p,
+    img: PRINCIPLE_IMAGES[i],
+  }));
+  const HIGHLIGHTS = t.about.highlights;
+
   return (
     <section
       id="about"
@@ -39,24 +18,13 @@ export default function About() {
     >
       <div className="mx-auto grid max-w-7xl items-stretch gap-12 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
         <div className="reveal">
-          <SectionLabel onLight>Hakkımızda</SectionLabel>
+          <SectionLabel onLight>{t.about.label}</SectionLabel>
           <h2 className="mt-4 text-balance font-sans text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
-            Dijital dönüşümün güvenilir teknoloji ve istihdam ortağı
+            {t.about.heading}
           </h2>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-slate-600">
-            <p>
-              ATLAS İSTANBUL Teknoloji İnovasyon Hizmetleri Danışmanlık A.Ş.,
-              yazılım geliştirme ve teknoloji çözümlerinin yanı sıra insan
-              kaynakları alanında faaliyet göstermektedir. Şirketimiz web
-              yazılımları, mobil uygulamalar, veri tabanı sistemleri ve kuruma
-              özel yazılımlar geliştirmektedir.
-            </p>
-            <p>
-              Aynı zamanda özel istihdam bürosu olarak, mobil uygulamamız ve
-              web sitemiz üzerinden aracılık ve işe yerleştirme hizmetleri
-              sunuyor; işletmelerin dijital dönüşüm süreçlerine katkı sağlayan
-              ölçeklenebilir ve sürdürülebilir çözümler üretmeyi hedefliyoruz.
-            </p>
+            <p>{t.about.p1}</p>
+            <p>{t.about.p2}</p>
           </div>
 
           <ul className="mt-8 grid gap-x-6 gap-y-3.5 sm:grid-cols-2">
@@ -84,11 +52,10 @@ export default function About() {
             </span>
             <div>
               <p className="font-sans text-sm font-bold text-navy-900">
-                İŞKUR Onaylı Özel İstihdam Bürosu
+                {t.about.iskurTitle}
               </p>
               <p className="mt-0.5 text-xs text-slate-500">
-                Belge No: 2021 · Tarih: 19/08/2026 · Yasal yetkiye sahip
-                aracılık hizmeti
+                {t.about.iskurMeta}
               </p>
             </div>
           </div>

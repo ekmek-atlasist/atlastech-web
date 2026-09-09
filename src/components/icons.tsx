@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import { useId, type SVGProps } from "react";
 
 const base = {
   fill: "none",
@@ -166,6 +166,86 @@ export function BreadIcon(props: SVGProps<SVGSVGElement>) {
     <svg {...base} {...props}>
       <path d="M5 11a4 4 0 0 1 4-4h6a4 4 0 0 1 0 8v3a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-7Z" />
       <path d="M9 11v6M13 11v6" />
+    </svg>
+  );
+}
+
+export function LinkedInIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M6.94 5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0ZM3.4 8.6h3.5V21H3.4V8.6Zm5.6 0h3.35v1.7h.05c.47-.85 1.6-1.75 3.3-1.75 3.53 0 4.18 2.2 4.18 5.06V21h-3.5v-5.9c0-1.4-.03-3.2-1.95-3.2-1.96 0-2.26 1.52-2.26 3.1V21H9V8.6Z" />
+    </svg>
+  );
+}
+
+export function InstagramIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.7}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function ChevronDownIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M6 9.5 12 15l6-5.5" />
+    </svg>
+  );
+}
+
+export function TurkishFlag(props: SVGProps<SVGSVGElement>) {
+  const uid = useId().replace(/:/g, "");
+  const clip = `tr-${uid}`;
+  return (
+    <svg viewBox="0 0 24 16" {...props}>
+      <clipPath id={clip}>
+        <rect width="24" height="16" rx="2" />
+      </clipPath>
+      <g clipPath={`url(#${clip})`}>
+        <rect width="24" height="16" fill="#E30A17" />
+        <circle cx="9.2" cy="8" r="3.4" fill="#fff" />
+        <circle cx="10.4" cy="8" r="2.7" fill="#E30A17" />
+        <path
+          fill="#fff"
+          d="M15.9 8 14.615 8.447 14.587 9.807 13.765 8.723 12.463 9.117 13.24 8 12.463 6.883 13.765 7.277 14.587 6.193 14.615 7.553Z"
+        />
+      </g>
+    </svg>
+  );
+}
+
+export function UKFlag(props: SVGProps<SVGSVGElement>) {
+  const uid = useId().replace(/:/g, "");
+  const clip = `uk-${uid}`;
+  const cc = `ukcc-${uid}`;
+  return (
+    <svg viewBox="0 0 60 40" {...props}>
+      <clipPath id={clip}>
+        <rect width="60" height="40" rx="5" />
+      </clipPath>
+      <clipPath id={cc}>
+        <path d="M30,20 h30 v20 z v20 h-30 z h-30 v-20 z v-20 h30 z" />
+      </clipPath>
+      <g clipPath={`url(#${clip})`}>
+        <rect width="60" height="40" fill="#012169" />
+        <path d="M0,0 60,40 M60,0 0,40" stroke="#fff" strokeWidth="10" />
+        <g clipPath={`url(#${cc})`}>
+          <path d="M0,0 60,40 M60,0 0,40" stroke="#C8102E" strokeWidth="5" />
+        </g>
+        <path d="M30,0 V40 M0,20 H60" stroke="#fff" strokeWidth="12" />
+        <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" strokeWidth="7" />
+      </g>
     </svg>
   );
 }
