@@ -29,7 +29,7 @@ export default function Footer() {
       className="border-t border-white/10 bg-navy-950"
     >
       <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-[1.5fr_auto_1fr_1.2fr]">
           {/* Brand */}
           <div>
             <Logo />
@@ -64,32 +64,32 @@ export default function Footer() {
                 {t.footer.soon}
               </span>
             </div>
+          </div>
 
-            {/* İŞKUR Özel İstihdam Bürosu belgesi */}
-            <div className="mt-7 flex items-center gap-4">
-              <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl bg-white p-2.5 shadow-lg shadow-black/20">
-                <img
-                  src="/iskur-logo.png"
-                  alt="İŞKUR Özel İstihdam Bürosu"
-                  width={310}
-                  height={309}
-                  loading="lazy"
-                  className="h-full w-full object-contain"
-                />
-              </div>
-              <div className="text-xs leading-relaxed text-ink-400">
-                <p className="font-semibold uppercase tracking-wider text-ink-300">
-                  {t.footer.iskurTitle}
-                </p>
-                <p className="mt-1.5">
-                  {t.footer.dateLabel}:{" "}
-                  <span className="font-medium text-ink-300">19/08/2026</span>
-                </p>
-                <p>
-                  {t.footer.docLabel}:{" "}
-                  <span className="font-medium text-ink-300">2021</span>
-                </p>
-              </div>
+          {/* İŞKUR Özel İstihdam Bürosu — logo ile menü arasında */}
+          <div className="flex flex-col items-start gap-3 md:items-center md:justify-self-center md:text-center">
+            <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl bg-white p-2.5 shadow-lg shadow-black/20">
+              <img
+                src="/iskur-logo.png"
+                alt="İŞKUR Özel İstihdam Bürosu"
+                width={310}
+                height={309}
+                loading="lazy"
+                className="h-full w-full object-contain"
+              />
+            </div>
+            <div className="text-xs leading-relaxed text-ink-400 md:text-center">
+              <p className="font-semibold uppercase tracking-wider text-ink-300">
+                {t.footer.iskurTitle}
+              </p>
+              <p className="mt-1.5">
+                {t.footer.dateLabel}:{" "}
+                <span className="font-medium text-ink-300">19/08/2026</span>
+              </p>
+              <p>
+                {t.footer.docLabel}:{" "}
+                <span className="font-medium text-ink-300">2021</span>
+              </p>
             </div>
           </div>
 
